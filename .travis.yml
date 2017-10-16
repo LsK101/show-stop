@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: 41aFV3coXxFOCiSpMFDLJIyz+pVvrQzSwDAfAH3e6TJkTef/R16C9r5/F+bSHyxN5geTbETfXJkZl4zlAuj09zHPM2A81aKzXKewz3+zJSob8+2kxecby4EqVEYtPp2G4gBFhyEPY8oBV305GnnrMPs/V3WJHLEK2pE/gv7eOTpC0XhgRtTqSci8EQo+HyUBzdjDaSkmGudtRNxfGg1CsSVFNiR4FHDwQWImp6UMJ2HbhRgBb91O5OfIemv6SVMKNgKTHvyJ1uc/YYjHrsQHDW2tW5Qg8y7h+1x+y5Rh0jLMOlC0PhiKbnN8UpqpesCL04IBU73gnnn2Ee0cg/fPVdohtgskQEvjoTNUHXF098VoL2jrt9zFS2MYgagH2CP2Kfl9kwIYt11JQwHWkv9Hb/yl+Ti/1N03n2DAmCo5rLadiG+TOf4MFewCkyMJIyyJfM4nTCuoB0m+LeM/ow9+SKYAj5zQ514MqyY3jCfpem1FTgLKYfHW7iG3Um0LJsgV3bsIxDNPFpH8Hles57iZ8RmNMs9TVOW6mS/Dxsqno7o+8M07Y8sVKeoxEvI5IB3/4DyJpVceY5uaVxEXvKZP8fd1d9lh14/GGdB4Nb1jReybR26RzrmFG91Dq938RIHto/oFHtATPqDpwjXeD54oy/2B+/bjdGU9BBe1HNP0t9w=
+  app: gentle-waters-34460
+  on:
+    repo: LsK101/music-guide-v2
