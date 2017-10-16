@@ -13,7 +13,7 @@ describe('initial web page', function() {
 			.get('/')
 			.then(function(res) {
 				res.should.have.status(200);
-				res.should.be.html;
+				res.should.be.html; 
 			});
 	});
 });
