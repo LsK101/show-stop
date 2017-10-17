@@ -2,8 +2,42 @@
 <html>
 <head>
 	<title></title>
+	<link href="index.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
 </head>
 <body>
-	<p>Hello world</p>
+	<main role="main" class="main">
+
+		<div class="logobox">
+		<span>PUT A LOGO IN THIS BOX EVENTUALLY</span>
+		</div>
+
+		<section class="login-container">
+			<h1 class="form-header">let's rock.</h1>
+
+			<form role="form" class="login-form">
+			<label for="login-username">Username</label>
+			<input id="login-username" type="text" required>
+			<label for="login-password">Password</label>
+			<input id="login-password" type="password" required>
+			<button type="submit">Log In</button>
+			</form>
+		</section>
+
+		<section class="signup-container">
+			<h1 class="form-header">no account?</h1>
+
+			<form role="form" class="signup-form">
+			<label for="signup-username">New Username</label>
+			<input id="signup-username" type="text" required>
+			<label for="signup-password">New Password</label>
+			<input id="signup-password" type="password" required>
+			<button type="submit">Sign Up</button>
+			</form>
+		</section>
+
+	</main>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
