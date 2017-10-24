@@ -41,6 +41,39 @@ function clearAndHideResultsContainers() {
   $('.container').prop('hidden', true);
 }
 
+/* LOGOUT FUNCTIONALITY */
+  $('.main-container').on('click', '.logout-button', event => {
+    getLoginSignupPageDataFromServer();
+  });
+
+function getLoginSignupPageDataFromServer() {
+  $.ajax({
+    url: "/logout",
+    method: "GET"
+  }).then(res => {
+    clearAndHideMainContainer();
+    clearAuthTokenAndCurrentUser();
+    populateAndUnhideLoginSignupContainer(res);
+    handleLoginForm(); //FROM INDEX.JS
+    handleSignupForm(); //FROM INDEX.JS
+  });
+}
+
+function clearAndHideMainContainer () {
+  $('.main-container').empty();
+  $('.main-container').prop('hidden', true);
+}
+
+function clearAuthTokenAndCurrentUser() {
+  authToken = "";
+  currentUser = "";
+}
+
+function populateAndUnhideLoginSignupContainer(HTML) {
+  $('.login-signup-container').append(HTML);
+  $('.login-signup-container').prop('hidden', false);
+}
+
 /* SEARCH HISTORY FUNCTIONALITY */
 function preventSearchHistoryOverflow() {
   searchCounter++;

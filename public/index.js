@@ -1,8 +1,14 @@
 let authToken;
 let currentUser;
 
-function clearLoginSignupContainer() {
+function clearAndHideLoginSignupContainer() {
 	$('.login-signup-container').empty();
+	$('.login-signup-container').prop('hidden', true);
+}
+
+function populateAndUnhideMainContainer(HTML) {
+	$('.main-container').append(HTML);
+	$('.main-container').prop('hidden', false);
 }
 
 function handleLoginForm() {
@@ -60,10 +66,8 @@ function useAuthTokenToLogIn(authToken) {
 			authorization: `Bearer ${authToken}`
 		}
 	}).then(res => {
-		clearLoginSignupContainer();
-		$('.login-signup-container').prop('hidden', true);
-		$('.main-container').append(res);
-		$('.main-container').prop('hidden', false);
+		clearAndHideLoginSignupContainer();
+		populateAndUnhideMainContainer(res);
 	});
 }
 

@@ -38,8 +38,12 @@ app.get('/main', passport.authenticate('jwt', {session: false}),
 	}
 );
 
+app.get('/logout', (req, res) => {
+	return res.status(200).sendFile('./public/loginsignup.html', {root: __dirname});
+});
+
 //404 ANY UNKNOWN REQUESTS
-app.use('*', (req,res) => {
+app.use('*', (req, res) => {
 	return res.status(404).json({message:'Not Found'});
 });
 
