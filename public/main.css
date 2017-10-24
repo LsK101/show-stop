@@ -1,3 +1,104 @@
-html {
+* {
   font-family: 'Exo', sans-serif;
+}
+
+body:before {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background: url('./images/festival-crowd.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.row {
+  background-color: #5C6B73;
+  opacity: 0.9;
+}
+
+.search-form {
+  border: 2px solid #253237;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.container,
+.search-history-container,
+.similar-artists-history-container
+ {
+  border: 2px solid #253237;
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.section-header {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.wiki-result,
+.wiki-footer,
+.youtube-single-result, 
+.shows-single-result, 
+.similar-artists-single-result, 
+.song-lyrics,
+.search-history-entry,
+.similar-artists-history-entry
+ {
+  border: 1px solid #253237;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #9DB4C0;
+}
+
+.wiki-footer-text {
+  font-size: 20px;
+}
+
+.youtube-thumbnail {
+  width: 100%;
+}
+
+.wiki-logo {
+  float: right;
+  width: 33px;
+  height: 30px;
+}
+
+.youtube-logo {
+  float: right;
+  width: 71px;
+  height: 30px;
+}
+
+.lyricsovh-logo {
+  float: right;
+  width: 195px;
+  height: 30px;
+}
+
+.songkick-logo {
+  float: right;
+  width: 102px;
+  height: 30px;
+}
+
+.history-search-logo,
+.similar-search-logo, 
+.discovered-search-logo, 
+.similar-songkick-logo {
+  display: inline-block;
+  width: 30px; 
+  height: 30px;
 }

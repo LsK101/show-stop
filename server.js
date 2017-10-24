@@ -32,7 +32,7 @@ passport.use(jwtStrategy);
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter);
 
-app.get('/api/protected', passport.authenticate('jwt', {session: false}),
+app.get('/api/protected/', passport.authenticate('jwt', {session: false}),
 	(req, res) => {
 		return res.status(200).sendFile('./public/main.html', {root: __dirname});
 	}
