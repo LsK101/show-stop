@@ -8,35 +8,25 @@ const {
 const {User} = require('../users/models');
 const {JWT_SECRET} = require('../config');
 
-const basicStrategy = new BasicStrategy((username, password, callback) => {
-    let user;
-    User.findOne({username: username})
-        .then(_user => {
-            user = _user;
-            if (!user) {
-                return Promise.reject({
-                    reason: 'LoginError',
-                    message: 'Incorrect username or password'
-                });
+const basicStrategy = new BasicStrategy((username, password, done) => {
+    User.findOne({username: username}, (err, user) => {
+        if (err) {
+            return done(err);
+        }
+        if (!user) {
+            return done(null, false);
+        }
+        user.validatePassword(password)
+        .then(passedValidation => { 
+            if(passedValidation) {
+                return done(null, user)
+            } 
+            else {
+                return done(null, false)
             }
-            return user.validatePassword(password);
-        })
-        .then(isValid => {
-            if (!isValid) {
-                return Promise.reject({
-                    reason: 'LoginError',
-                    message: 'Incorrect username or password'
-                });
-            }
-            return callback(null, user);
-        })
-        .catch(err => {
-            if (err.reason === 'LoginError') {
-                return callback(null, false, err);
-            }
-            return callback(err, false);
         });
-});
+    });
+})
 
 const jwtStrategy = new JwtStrategy(
     {

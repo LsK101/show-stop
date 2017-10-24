@@ -14,14 +14,18 @@ const createAuthToken = user => {
 
 const router = express.Router();
 
-router.post(
-    '/login',
-    passport.authenticate('basic', {session: false}),
-    (req, res) => {
-        const authToken = createAuthToken(req.user.apiRepr());
-        res.json({authToken});
-    }
-);
+router.post('/login', (req, res, next) => {
+    passport.authenticate('basic', function(err, user, info) {
+        if (err) {next(err)}
+        if (!user) {
+            return res.status(401).json({message: 'Incorrect username or password'})
+        }
+        else {
+            const authToken = createAuthToken(user.apiRepr());
+            return res.status(200).json({authToken});
+        };
+    })(req, res, next);
+});
 
 router.post(
     '/refresh',

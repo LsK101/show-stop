@@ -51,7 +51,8 @@ router.post('/', jsonParser, (req,res) => {
 
 	const sizedFields = {
 		username: {
-			min: 1
+			min: 3,
+			max: 20
 		},
 		password: {
 			min: 10,
@@ -93,7 +94,7 @@ router.post('/', jsonParser, (req,res) => {
 				return Promise.reject({
 					code: 422,
 					reason: 'ValidationError',
-					message: 'Username already taken',
+					message: 'already taken',
 					location: 'username'
 				});
 			}

@@ -1,4 +1,5 @@
 let authToken;
+let currentUser;
 
 function clearLoginSignupContainer() {
 	$('.login-signup-container').empty();
@@ -9,6 +10,8 @@ function handleLoginForm() {
     event.preventDefault();
     let inputUser = $('.login-username').val();
     let inputPass = $('.login-password').val();
+    setCurrentUser(inputUser);
+    clearLoginForm();
     getAuthToken(inputUser, inputPass);
   });
 }
@@ -18,7 +21,15 @@ function handleSignupForm() {
     event.preventDefault();
     let newUser = $('.signup-username').val();
     let newPass = $('.signup-password').val();
-    registerNewUser(newUser, newPass);
+    let confirmPass = $('.confirm-password').val();
+    if (newPass === confirmPass) {
+    	registerNewUser(newUser, newPass);
+    }
+    else {
+    	let errorMessage = `passwords do not match`
+   		clearErrorAndSuccessMessages();
+		$('.signup-error').append(errorMessage);
+    }
   });
 }
 
@@ -36,9 +47,9 @@ function getAuthToken(inputUser, inputPass) {
 		authToken = JWT.authToken
 		useAuthTokenToLogIn(JWT.authToken);
 	}).catch(() => {
-		$('.login-error').empty();
-		$('.login-error').append(`Incorrect username or password`);
-	})
+		clearErrorAndSuccessMessages();
+		$('.login-error').append(`incorrect username or password`);
+	});
 }
 
 function useAuthTokenToLogIn(authToken) {
@@ -66,23 +77,37 @@ function registerNewUser(user, pass) {
 		data: `{"username": "${user}", "password": "${pass}"}`
 	}).then(res => {
 		clearSignupForm();
-		showUserCreationSuccess(res.username);
+		clearErrorAndSuccessMessages();
+		let userCreated = `"${user}" successfully created!`
+		$('.user-created').append(userCreated);
 	}).catch(err => {
-		userFailed = err.responseJSON.message;
-		$('.user-created').empty();
-		$('.user-created').append(userFailed);
+		let errorLocation = err.responseJSON.location;
+		let errorMessage = err.responseJSON.message.toLowerCase();
+		let errorConcatenated = (`${errorLocation} ${errorMessage}`);
+		clearErrorAndSuccessMessages();
+		$('.signup-error').append(errorConcatenated);
 	});
+}
+
+function setCurrentUser(inputUser) {
+	currentUser = inputUser;
+}
+
+function clearLoginForm() {
+	$('.login-username').val("");
+  	$('.login-password').val("");
 }
 
 function clearSignupForm() {
 	$('.signup-username').val("");
   	$('.signup-password').val("");
+  	$('.confirm-password').val("");
 }
 
-function showUserCreationSuccess(user) {
-	userCreated = `New User ${user} successfully created!`
+function clearErrorAndSuccessMessages() {
+	$('.signup-error').empty();
 	$('.user-created').empty();
-	$('.user-created').append(userCreated);
+	$('.login-error').empty();
 }
 
 handleLoginForm();
