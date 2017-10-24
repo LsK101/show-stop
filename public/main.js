@@ -53,6 +53,7 @@ function getLoginSignupPageDataFromServer() {
   }).then(res => {
     clearAndHideMainContainer();
     clearAuthTokenAndCurrentUser();
+    resetSearchCounters();
     populateAndUnhideLoginSignupContainer(res);
     handleLoginForm(); //FROM INDEX.JS
     handleSignupForm(); //FROM INDEX.JS
@@ -67,6 +68,11 @@ function clearAndHideMainContainer () {
 function clearAuthTokenAndCurrentUser() {
   authToken = "";
   currentUser = "";
+}
+
+function resetSearchCounters() {
+  searchCounter = 0;
+  similarArtistsSearchCounter = 0;
 }
 
 function populateAndUnhideLoginSignupContainer(HTML) {
