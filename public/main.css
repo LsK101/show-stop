@@ -29,6 +29,7 @@ body:before {
   margin-top: 10px;
   margin-bottom: 10px;
   opacity: 0.9;
+  height: 373px;
 }
 
 .container,
@@ -39,6 +40,10 @@ body:before {
   padding: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.search-history-container {
+  height: 373px;
 }
 
 .section-header {

@@ -1,50 +1,63 @@
       <div class="row">
 
-        <form role="search" action="#" class="search-form col-12">
-          <label for="search-music">Search For an Artist <b>OR</b> an Artist/Song Combination (For Song Lyrics, If Available):</label><br>
-          <input role="searchbox" id="search-music" type="text" class="artist-string" placeholder="Artist" required>
-          <input role="searchbox" id="search-music" type="text" class="song-string" placeholder="Song">
-          <button role="button" type="submit">Search</button>
-          <button role="button" class="logout-button">Log Out</button>
-        </form>
+        <div class="col-12">
+
+          <section role="region" class="container" hidden>
+          </section>
+
+        </div>
 
       </div>
+
+
 
       <div class="row">
 
         <div class="col-6">
 
-          <section role="region" class="search-history search-history-container hidden" hidden>
+          <form role="search" action="#" class="search-form">
+            <label for="search-music">Search For an Artist</label><br>
+            <input role="searchbox" id="search-music" type="text" class="artist-string" placeholder="Artist" required>
+            <button role="button" type="submit">Search</button>
+            <button role="button" class="logout-button">Log Out</button>
+          </form>
+
+        </div>
+
+        <div class="col-6">
+
+          <section role="region" class="search-history search-history-container">
             <span role="heading" class="section-header">Recently Searched</span>
             <br>
             <br>
           </section>
 
-          <section role="region" class="similar-artists-history similar-artists-history-container" hidden>
-            <span role="heading" class="section-header">Recently Discovered</span>
-            <br>
-            <br>
-          </section>
+        </div>
 
-          <section role="region" class="lyrics container" hidden>
-          </section>
+      </div>
 
-          <section role="region" class="wiki container hidden" hidden>
-          </section>
+
+
+      <div class="row">
+
+        <div class="col-12">
 
           <section role="region" class="shows container hidden" hidden>
           </section>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="row">
+
+        <div class="col-12">
 
           <section role="region" class="similar-artists container hidden" hidden>
           </section>
 
         </div>
 
-        <div class="col-6">
-
-          <section role="region" class="youtube container hidden" hidden>
-          </section>
-
-        </div>
-
-      </div>
+      </div>    

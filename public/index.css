@@ -18,6 +18,25 @@ body:before {
   background-size: cover;
 }
 
+label, input {
+  display: block;
+  font-size: 20px;
+  padding: 15px;
+}
+
+label {
+  margin-left: -15px;
+}
+
+input {
+  width: 286px;
+  height: 21px;
+  display: relative;
+  color: gray;
+  border: 2px solid #9DB4C0;
+  border-radius: 3px;
+}
+
 .logobox {
   border: 2px solid white;
   padding-left: 40px;
@@ -81,26 +100,7 @@ body:before {
   color: lawngreen;
 }
 
-label, input {
-  display: block;
-  font-size: 20px;
-  padding: 15px;
-}
-
-label {
-  margin-left: -15px;
-}
-
-input {
-  width: 286px;
-  height: 21px;
-  display: relative;
-  color: gray;
-  border: 2px solid #9DB4C0;
-  border-radius: 3px;
-}
-
-button {
+.login-button {
   width: 320px;
   margin-top: 25px;
   height: 55px;
@@ -114,7 +114,7 @@ button {
   transition: all 0.2s ease 0s
 }
 
-button:hover {
+.login-button:hover {
   border: 2px solid #9DB4C0;
   background-color: #9DB4C0;
   color: black;
