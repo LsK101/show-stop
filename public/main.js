@@ -1,4 +1,5 @@
 const songkickSearchAPI = "https://api.songkick.com/api/3.0/search/artists.json";
+const googleMapsAPI = "https://maps.googleapis.com/maps/api/staticmap"
 
 let searchCounter = 0;
 
@@ -28,6 +29,7 @@ function clearInputFields() {
 
 function clearAndHideResultsContainers() {
   $('.container').empty();
+  $('.current-artist-container').empty();
   $('.container').prop('hidden', true);
 }
 
@@ -116,6 +118,14 @@ function getSongkickArtistDetails(songkickAPIData) {
 }
 
 function displayArtistEventHeaderAndSongkickLink(artistURL, artistName) {
+  $('.current-artist-container').append(`
+      <div class="shows-single-result">
+      <span><b>${artistName}</b></span><br>
+        <a href="${artistURL}" target="_blank">
+          <img src="./images/sk-badge-white.png" class="similar-songkick-logo">
+        </a>
+      </div>
+      `);
   $('.shows').append(`
       <span role="heading" class="section-header">Upcoming Live Performances</span>
       <a href="http://www.songkick.com/" target="_blank">
@@ -150,25 +160,32 @@ function displaySongkickEventData(songkickAPIData) {
       `);
   }
   else {
-    const resultsData = songkickAPIData.resultsPage.results.event.map((item) => renderSongkickEventData(item));
-    $('.shows').append(resultsData); 
+    const resultsData = songkickAPIData.resultsPage.results.event.map((item) => 
+      renderSongkickEventData(item));
+    $('.shows').append(resultsData);
   }
 }
 
 function renderSongkickEventData(item) {
   return `
       <div class="shows-single-result">
+        <div class="google-maps-result">
+          <a href="https://www.google.com/maps/search/?api=1&query=${item.venue.displayName} ${item.location.city}" target="_blank">
+            <img src="https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=125x125&maptype=roadmap&markers=color:blue%7C${item.venue.displayName} ${item.location.city}&key=AIzaSyCdM8iZUs9ES3bKVvpiV8O7p3qsC23xXQI">
+          <a>
+        </div>
         <span><b>Date:</b> ${item.start.date}</span><br>
-        <span><b>Location:</b> ${item.location.city}</span><br>
+        <span><b>Location:</b> <span class="show-location">${item.location.city}</span></span><br>
         <span><b>Event:</b></span><br>
         <a href="${item.uri} target="_blank">
           <span>${item.displayName}</span><br>
         </a>
         <span><b>Venue:</b></span><br>
         <a href="${item.venue.uri} target="_blank">
-          <span>${item.venue.displayName}</span><br>
+          <span class="show-venue">${item.venue.displayName}</span><br>
         </a>
       </div>
+      
   `;
 }
 
