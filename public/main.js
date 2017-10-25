@@ -135,7 +135,7 @@ function displayArtistEventHeaderAndSongkickLink(artistURL, artistName) {
 function getSongkickArtistEventData(artistID, callback) {
   const songkickEventAPI = `https://api.songkick.com/api/3.0/artists/${artistID}/calendar.json`;
   const query = {
-    per_page: 5,
+    per_page: 20,
     apikey: 'mtLUgpC0c49wQgiQ'
   };
   $.getJSON(songkickEventAPI, query, callback);
