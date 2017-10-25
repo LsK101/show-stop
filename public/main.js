@@ -119,7 +119,7 @@ function getSongkickArtistDetails(songkickAPIData) {
 
 function displayArtistEventHeaderAndSongkickLink(artistURL, artistName) {
   $('.current-artist-container').append(`
-      <div class="shows-single-result">
+      <div class="result-artist-name">
       <span><b>${artistName}</b></span><br>
         <a href="${artistURL}" target="_blank">
           <img src="./images/sk-badge-white.png" class="similar-songkick-logo">
@@ -133,7 +133,7 @@ function displayArtistEventHeaderAndSongkickLink(artistURL, artistName) {
       </a>
       <br>
       <br>
-      <div class="shows-single-result">
+      <div class="result-artist-name">
       <span><b>${artistName}</b></span><br>
         <a href="${artistURL}" target="_blank">
           <img src="./images/sk-badge-white.png" class="similar-songkick-logo">
@@ -171,7 +171,7 @@ function renderSongkickEventData(item) {
       <div class="shows-single-result">
         <div class="google-maps-result">
           <a href="https://www.google.com/maps/search/?api=1&query=${item.venue.displayName} ${item.location.city}" target="_blank">
-            <img src="https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=125x125&maptype=roadmap&markers=color:blue%7C${item.venue.displayName} ${item.location.city}&key=AIzaSyCdM8iZUs9ES3bKVvpiV8O7p3qsC23xXQI">
+            <img class="maps-image" src="https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=500x500&maptype=roadmap&markers=color:blue%7C${item.venue.displayName} ${item.location.city}&key=AIzaSyCdM8iZUs9ES3bKVvpiV8O7p3qsC23xXQI">
           <a>
         </div>
         <span><b>Date:</b> ${item.start.date}</span><br>

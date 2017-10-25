@@ -54,7 +54,8 @@ body:before {
 .shows-single-result, 
 .similar-artists-single-result, 
 .search-history-entry,
-.similar-artists-history-entry
+.similar-artists-history-entry,
+.result-artist-name
  {
   border: 1px solid #253237;
   padding: 10px;
@@ -82,7 +83,17 @@ body:before {
   margin-top: 80px;
 }
 
+.shows-single-result {
+  height: 200px;
+}
+
 .google-maps-result {
   float: left;
+  clear: both;
+  height: 100%;
   margin-right: 5px;
+}
+
+.maps-image {
+  height: 100%;
 }
