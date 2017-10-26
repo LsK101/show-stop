@@ -19,20 +19,12 @@ body:before {
 }
 
 label, input {
-  display: block;
   font-size: 20px;
-  padding: 15px;
-}
-
-label {
-  margin-left: -15px;
 }
 
 input {
   width: 286px;
-  height: 21px;
   display: relative;
-  color: gray;
   border: 2px solid #9DB4C0;
   border-radius: 3px;
 }

@@ -38,8 +38,9 @@ app.get('/main', passport.authenticate('jwt', {session: false}),
 	}
 );
 
-app.get('/logout', (req, res) => {
-	return res.status(200).sendFile('./public/logout.html', {root: __dirname});
+app.get('/logout', passport.authenticate('jwt', {session: false}),
+	(req, res) => {
+		return res.status(200).sendFile('./public/logout.html', {root: __dirname});
 });
 
 //404 ANY UNKNOWN REQUESTS

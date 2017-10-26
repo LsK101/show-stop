@@ -41,7 +41,10 @@ function clearAndHideResultsContainers() {
 function getLoginSignupPageDataFromServer() {
   $.ajax({
     url: "/logout",
-    method: "GET"
+    method: "GET",
+    headers: {
+      authorization: `Bearer ${authToken}`
+    }
   }).then(res => {
     clearAndHideMainContainer();
     clearAuthTokenAndCurrentUser();
