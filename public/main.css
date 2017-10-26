@@ -24,10 +24,17 @@ body:before {
 }
 
 .search-form {
-  padding: 10px;
+  position: absolute;
+  opacity: 0.9;
+  top: 3px;
+
+
+}
+
+.main-header {
+  padding: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
-  opacity: 0.9;
 }
 
 .container,
@@ -35,7 +42,6 @@ body:before {
 .similar-artists-history-container,
 .search-form-container
  {
-  border: 2px solid #253237;
   padding: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -44,6 +50,11 @@ body:before {
 .search-form-container,
 .search-history-container {
   height: 373px;
+  border: 2px solid #253237;
+}
+
+.search-form-container {
+  position: relative;
 }
 
 .section-header {
@@ -80,7 +91,7 @@ body:before {
 }
 
 .current-artist-container {
-  margin-top: 80px;
+  margin-top: 241px;
 }
 
 .shows-single-result {
@@ -96,4 +107,65 @@ body:before {
 
 .maps-image {
   height: 100%;
+}
+
+.main-header {
+  position: relative;
+}
+
+.welcome-message {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.favorites-button {
+  color: white;
+  height: 45px;
+  position: absolute;
+  right: 105px;
+  top: 12px;
+  font-weight: bold;
+  font-size: 20px;
+  border: 2px solid #253237;
+  background-color: #253237;
+  border-radius: 3px;
+  transition: all 0.2s ease 0s
+}
+
+.logout-button {
+  color: white;
+  height: 45px;
+  position: absolute;
+  right: 8px;
+  top: 12px;
+  font-weight: bold;
+  font-size: 20px;
+  border: 2px solid #253237;
+  background-color: #253237;
+  border-radius: 3px;
+  transition: all 0.2s ease 0s
+}
+
+.search-button {
+  color: white;
+  height: 34px;
+  font-weight: bold;
+  font-size: 20px;
+  border: 2px solid #253237;
+  background-color: #253237;
+  border-radius: 3px;
+  transition: all 0.2s ease 0s
+}
+
+.favorites-button:hover,
+.logout-button:hover,
+.search-button:hover {
+  border: 2px solid #9DB4C0;
+  background-color: #9DB4C0;
+  color: black;
+}
+
+.search-box,
+.search-button {
+  display: inline-block;
 }

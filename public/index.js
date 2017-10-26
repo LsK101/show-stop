@@ -8,6 +8,8 @@ function clearAndHideLoginSignupContainer() {
 
 function populateAndUnhideMainContainer(HTML) {
 	$('.main-container').append(HTML);
+	let welcomeMessage = `<span class="welcome-message">Welcome, ${currentUser}!</span>`
+	$('.main-header').append(welcomeMessage);
 	$('.main-container').prop('hidden', false);
 }
 

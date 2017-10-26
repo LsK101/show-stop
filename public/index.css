@@ -119,3 +119,7 @@ input {
   background-color: #9DB4C0;
   color: black;
 }
+
+.input-box {
+  width: 320px;
+}

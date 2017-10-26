@@ -201,7 +201,7 @@ function getSongkickSimilarArtistsData(artistID, callback) {
 function displaySongkickSimilarArtistsData(songkickAPIData) {
   const resultsData = songkickAPIData.resultsPage.results.artist.map((item) => renderSongkickSimilarArtistsData(item));
   $('.similar-artists').append(`
-    <span role="heading" class="section-header">Similar Artists</span>
+    <span role="heading" class="section-header">Other Artists You May Like</span>
     <a href="http://www.songkick.com/" target="_blank">
     <img src="./images/by-songkick-white.png" class="songkick-logo">
     </a>
