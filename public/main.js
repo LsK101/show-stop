@@ -63,6 +63,7 @@ function clearAndHideMainContainer () {
 function clearAuthTokenAndCurrentUser() {
   authToken = "";
   currentUser = "";
+  currentUserID = "";
 }
 
 function resetSearchCounters() {

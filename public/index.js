@@ -1,5 +1,6 @@
 let authToken;
 let currentUser;
+let currentUserID;
 
 function clearAndHideLoginSignupContainer() {
 	$('.login-signup-container').empty();
@@ -69,7 +70,22 @@ function useAuthTokenToLogIn(authToken) {
 		}
 	}).then(res => {
 		clearAndHideLoginSignupContainer();
+		getAndSetCurrentUserID(authToken);
 		populateAndUnhideMainContainer(res);
+	});
+}
+
+function getAndSetCurrentUserID(authToken) {
+	$.ajax({
+		url: "/api/users/id",
+		method: "POST",
+		headers: {
+			"content-type": "application/json",
+			authorization: `Bearer ${authToken}`
+		},
+		data: JSON.stringify({username: currentUser})
+	}).then(res => {
+		currentUserID = res;
 	});
 }
 
@@ -80,7 +96,7 @@ function registerNewUser(user, pass) {
 		headers: {
 			"content-type": "application/json"
 		},
-		data: `{"username": "${user}", "password": "${pass}"}`
+		data: JSON.stringify({username: user, password: pass})
 	}).then(res => {
 		clearSignupForm();
 		clearErrorAndSuccessMessages();

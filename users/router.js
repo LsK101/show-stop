@@ -8,7 +8,7 @@ const router = express.Router();
 
 const jsonParser = bodyParser.json();
 
-router.post('/', jsonParser, (req,res) => {
+router.post('/', jsonParser, (req, res) => {
 	const requiredFields = ['username', 'password'];
 	const missingField = requiredFields.find(field => !(field in req.body));
 
@@ -117,12 +117,14 @@ router.post('/', jsonParser, (req,res) => {
 		});
 });
 
-//COMMENT THIS BLOCK OUT WHEN PUBLISHING
-router.get('/', (req, res) => {
+router.post('/id', jsonParser, passport.authenticate('jwt', {session: false}),
+	(req, res) => {
 	return User.find()
-		.then(users => res.json(users.map(user => user.apiRepr())))
+		.then(users => users.filter(obj => {
+			return obj.username === req.body.username;
+		}))
+		.then(user => res.json(user[0]._id))
 		.catch(err => res.status(500).json({message: 'Internal server error'}));
 });
-//
 
 module.exports = {router};
