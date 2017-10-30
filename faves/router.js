@@ -59,7 +59,25 @@ router.post('/add', jsonParser, passport.authenticate('jwt', {session: false}),
 					})
 		})
 		.then(() => {
-			res.status(200).json({message: `${favoriteArtist} added to favorites!`})
+			return res.status(200).json({message: `${favoriteArtist} added to favorites!`})
+		})
+		.catch(err => res.status(500).json({message: 'Internal server error'}));
+});
+
+//REMOVE FAVORITE FROM USER'S FAVORITES LIST
+router.post('/del', jsonParser, passport.authenticate('jwt', {session: false}),
+	(req, res) => {
+	let delRequestID = req.body.userID;
+	let deleteArtist = req.body.deleteArtist;
+	return Fave.update(
+		{userID: delRequestID},
+		{
+			$pull: {
+				favorites: deleteArtist
+			}
+		})
+		.then(() => {
+			return res.status(200).json({message: `${deleteArtist} removed from favorites.`})
 		})
 		.catch(err => res.status(500).json({message: 'Internal server error'}));
 });
