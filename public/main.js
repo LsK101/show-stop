@@ -116,6 +116,35 @@ function handleSearchUsingFavoritesDropdown() {
   });
 }
 
+/* ADD ARTISTS TO FAVORITES */
+function manageFavoritesButton() {
+  $('.main-container').on('click', '.favorites-logo', event => {
+      const artistSave = $(event.currentTarget).closest('div').find('.current-artist-name').text();
+      addArtistToFavorites(artistSave);
+  });
+}
+
+function addArtistToFavorites(artist) {
+  $.ajax({
+    url: "api/faves/add",
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${authToken}`
+    },
+    data: JSON.stringify({userID: currentUserID, favoriteArtist: artist})
+  }).then(res => {
+    alert(res.message);
+    reloadAndRepopulateFavoritesDropdown();
+  })
+}
+
+function reloadAndRepopulateFavoritesDropdown() {
+  $('.favorites-dropdown').empty();
+  $('.favorites-dropdown').append(`<option value=""></option>`);
+  getFavoritesFromServer(currentUserID);
+}
+
 /* SEARCH HISTORY FUNCTIONALITY */
 function preventSearchHistoryOverflow() {
   searchCounter++;
@@ -164,7 +193,8 @@ function getSongkickArtistDetails(songkickAPIData) {
 function displayArtistEventHeaderAndSongkickLink(artistURL, artistName) {
   $('.current-artist-container').append(`
       <div class="result-artist-name">
-      <span><b>${artistName}</b></span><br>
+      <span class="current-artist-name"><b>${artistName}</b></span><br>
+        <img src="./images/favorites-star.png" class="favorites-logo">
         <a href="${artistURL}" target="_blank">
           <img src="./images/sk-badge-white.png" class="similar-songkick-logo">
         </a>
@@ -279,6 +309,7 @@ function handleSearchUsingSimilarArtist() {
 /* EXECUTE ALL FUNCTION CALLS */
 handleSearchForm();
 goToManageFavoritesPage();
+manageFavoritesButton();
 handleMainLogoutButton();
 handleSearchUsingFavoritesDropdown();
 handleSearchUsingSearchHistory();

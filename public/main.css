@@ -84,7 +84,8 @@ body:before {
 .history-search-logo,
 .similar-search-logo, 
 .discovered-search-logo, 
-.similar-songkick-logo {
+.similar-songkick-logo,
+.favorites-logo {
   display: inline-block;
   width: 30px; 
   height: 30px;

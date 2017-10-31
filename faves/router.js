@@ -11,11 +11,11 @@ const jsonParser = bodyParser.json();
 //FETCHES FAVORITES LIST FROM DB, CREATES DB ENTRY IF NEW USER
 router.post('/get', jsonParser, passport.authenticate('jwt', {session: false}),
 	(req, res) => {
-	let getRequestID = req.body.userID
+	let getRequestID = req.body.userID;
 	return Fave.find()
-		.then(users => users.filter(obj => {
-			return obj.userID === getRequestID;
-		}))
+		.then(users => {
+			return users.filter(obj => obj.userID === getRequestID);
+		})
 		.then(user => {
 			if (user.length === 0) {
 				return Fave.create({
@@ -29,7 +29,10 @@ router.post('/get', jsonParser, passport.authenticate('jwt', {session: false}),
 		.then(user => {
 			return res.json(user.apiRepr());
 		})
-		.catch(err => res.status(500).json({message: 'Internal server error'}));
+		.catch(err => {
+			res.status(500).json({message: 'Internal server error'});
+			console.log(err);
+			});
 });
 
 //ADDS FAVORITE TO USER'S FAVORITES LIST
