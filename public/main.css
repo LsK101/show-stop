@@ -91,7 +91,7 @@ body:before {
 }
 
 .current-artist-container {
-  margin-top: 241px;
+  margin-top: 32px;
 }
 
 .shows-single-result {
@@ -118,11 +118,11 @@ body:before {
   font-size: 25px;
 }
 
-.favorites-button {
+.manage-favorites-button {
   color: white;
   height: 45px;
   position: absolute;
-  right: 105px;
+  right: 120px;
   top: 12px;
   font-weight: bold;
   font-size: 20px;
@@ -157,7 +157,7 @@ body:before {
   transition: all 0.2s ease 0s
 }
 
-.favorites-button:hover,
+.manage-favorites-button:hover,
 .logout-button:hover,
 .search-button:hover {
   border: 2px solid #9DB4C0;
@@ -168,4 +168,12 @@ body:before {
 .search-box,
 .search-button {
   display: inline-block;
+}
+
+.favorites-dropdown {
+  width: 286px;
+  height: 34px;
+}
+.dropdown-container {
+  margin-top: 120px;
 }

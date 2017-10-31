@@ -1,6 +1,7 @@
 let authToken;
 let currentUser;
 let currentUserID;
+let favoriteArtists;
 
 function clearAndHideLoginSignupContainer() {
 	$('.login-signup-container').empty();
@@ -86,7 +87,29 @@ function getAndSetCurrentUserID(authToken) {
 		data: JSON.stringify({username: currentUser})
 	}).then(res => {
 		currentUserID = res;
+		getFavoritesFromServer(currentUserID);
 	});
+}
+
+function getFavoritesFromServer(userID) {
+	$.ajax({
+		url: "api/faves/get",
+		method: "POST",
+		headers: {
+			"content-type": "application/json",
+			authorization: `Bearer ${authToken}`
+		},
+		data: JSON.stringify({userID: userID})
+	}).then(res => {
+		favoriteArtists = res.favorites;
+		populateFavoritesDropbox(favoriteArtists);
+	})
+}
+
+function populateFavoritesDropbox(favoritesArray) {
+	favoritesArray.forEach(artist => {
+		$('.favorites-dropdown').append(`<option value="${artist}">${artist}</option>`)
+	})
 }
 
 function registerNewUser(user, pass) {

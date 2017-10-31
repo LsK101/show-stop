@@ -34,9 +34,11 @@ function clearAndHideResultsContainers() {
 }
 
 /* LOGOUT FUNCTIONALITY */
+function handleMainLogoutButton() {
   $('.main-container').on('click', '.logout-button', event => {
     getLoginSignupPageDataFromServer();
   });
+}
 
 function getLoginSignupPageDataFromServer() {
   $.ajax({
@@ -47,6 +49,7 @@ function getLoginSignupPageDataFromServer() {
     }
   }).then(res => {
     clearAndHideMainContainer();
+    clearAndHideManageFavoritesContainer();
     clearAuthTokenAndCurrentUser();
     resetSearchCounters();
     populateAndUnhideLoginSignupContainer(res);
@@ -64,6 +67,7 @@ function clearAuthTokenAndCurrentUser() {
   authToken = "";
   currentUser = "";
   currentUserID = "";
+  favoriteArtists = "";
 }
 
 function resetSearchCounters() {
@@ -74,6 +78,42 @@ function resetSearchCounters() {
 function populateAndUnhideLoginSignupContainer(HTML) {
   $('.login-signup-container').append(HTML);
   $('.login-signup-container').prop('hidden', false);
+}
+
+/* MANAGE FAVORITES BUTTON FUNCTIONALITY */
+function goToManageFavoritesPage() {
+  $('.main-container').on('click', '.manage-favorites-button', event => {
+    clearAndHideMainContainer();
+    resetSearchCounters();
+    populateAndUnhideFavoritesContainer();
+  });
+}
+
+function populateAndUnhideFavoritesContainer() {
+  $.ajax({
+    url: '/managefaves',
+    method: 'GET',
+    headers: {
+      authorization: `Bearer ${authToken}`
+    }
+  }).then(res => {
+    $('.manage-favorites-container').append(res);
+    let favoritesMessage = `<span class="favorites-message">${currentUser}'s Favorites</span>`
+    $('.main-header').append(favoritesMessage);
+    $('.manage-favorites-container').prop('hidden', false);
+    getFavoritesAndPopulateManageFavoritesPage();
+  });
+}
+
+/* DROPDOWN MENU FUNCTIONALITY */
+function handleSearchUsingFavoritesDropdown() {
+  $('.main-container').on('change', '.favorites-dropdown', event => {
+    const artistQuery = $(event.currentTarget)[0].value;
+    clearInputFields();
+    clearAndHideResultsContainers();
+    getSongkickArtistID(artistQuery, getSongkickArtistDetails);
+    unhideContainers();
+  });
 }
 
 /* SEARCH HISTORY FUNCTIONALITY */
@@ -189,7 +229,6 @@ function renderSongkickEventData(item) {
           <span class="show-venue">${item.venue.displayName}</span><br>
         </a>
       </div>
-      
   `;
 }
 
@@ -239,5 +278,8 @@ function handleSearchUsingSimilarArtist() {
 
 /* EXECUTE ALL FUNCTION CALLS */
 handleSearchForm();
+goToManageFavoritesPage();
+handleMainLogoutButton();
+handleSearchUsingFavoritesDropdown();
 handleSearchUsingSearchHistory();
 handleSearchUsingSimilarArtist();

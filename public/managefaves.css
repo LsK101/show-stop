@@ -1,0 +1,49 @@
+.return-button {
+  color: white;
+  height: 45px;
+  position: absolute;
+  right: 120px;
+  top: 12px;
+  font-weight: bold;
+  font-size: 20px;
+  border: 2px solid #253237;
+  background-color: #253237;
+  border-radius: 3px;
+  transition: all 0.2s ease 0s
+}
+
+.return-button:hover {
+  border: 2px solid #9DB4C0;
+  background-color: #9DB4C0;
+  color: black;
+}
+
+.favorites-message {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.favorite-artist-single-result {
+  border: 1px solid #253237;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #9DB4C0;
+}
+
+.remove-favorite-button {
+  color: white;
+  height: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  border: 2px solid #253237;
+  background-color: #253237;
+  border-radius: 3px;
+  transition: all 0.2s ease 0s
+}
+
+.return-button:hover {
+  border: 2px solid #9DB4C0;
+  background-color: #9DB4C0;
+  color: black;
+}

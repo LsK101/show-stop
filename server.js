@@ -45,6 +45,11 @@ app.get('/logout', passport.authenticate('jwt', {session: false}),
 		return res.status(200).sendFile('./public/logout.html', {root: __dirname});
 });
 
+app.get('/managefaves', passport.authenticate('jwt', {session:false}),
+	(req, res) => {
+		return res.status(200).sendFile('./public/managefaves.html', {root: __dirname});
+});
+
 //404 ANY UNKNOWN REQUESTS
 app.use('*', (req, res) => {
 	return res.status(404).json({message:'Not Found'});

@@ -3,7 +3,7 @@
         <div class="col-12">
 
           <section role="region" class="main-header">
-          <button role="button" class="favorites-button">Favorites</button>
+          <button role="button" class="manage-favorites-button">Manage Favorites</button>
           <button role="button" class="logout-button">Log Out</button>
           </section>
 
@@ -24,6 +24,14 @@
               <input role="searchbox" id="search-music" type="text" class="artist-string search-box" placeholder="Artist" required>
               <button role="button" type="submit" class="search-button">Search</button>
             </form>
+
+            <div class="dropdown-container">
+              <span class="section-header">Favorites</span>
+              <br><br>
+              <select class="favorites-dropdown">
+              <option value=""></option>
+              </select>
+            </div>
 
             <div class="current-artist-container">
             </div>
@@ -67,8 +75,4 @@
 
         </div>
 
-      </div>
-
-
-
-         
+      </div>   
