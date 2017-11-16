@@ -27,8 +27,6 @@ body:before {
   position: absolute;
   opacity: 0.9;
   top: 20px;
-
-
 }
 
 .main-header {
@@ -168,6 +166,7 @@ body:before {
   width: 286px;
   height: 34px;
 }
+
 .dropdown-container {
   margin-top: 120px;
 }
@@ -185,6 +184,8 @@ body:before {
     position: static;
     right: auto;
     top: auto;
+    display: block;
+    margin-left: 18px;
   }
 
   .maps-image {
