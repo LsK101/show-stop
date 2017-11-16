@@ -29,7 +29,7 @@
   width: 100%;
 }
 
-@media only screen and (min-width: 730px) {
+@media only screen and (min-width: 940px) {
   .col-3 {
     width: 25%;
   }
