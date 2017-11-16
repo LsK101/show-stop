@@ -239,7 +239,7 @@ function displaySongkickEventData(songkickAPIData) {
     $('.shows').append(resultsData);
   }
 }
-
+/*
 function renderSongkickEventData(item) {
   return `
       <div class="shows-single-result">
@@ -258,6 +258,30 @@ function renderSongkickEventData(item) {
         <a href="${item.venue.uri} target="_blank">
           <span class="show-venue">${item.venue.displayName}</span><br>
         </a>
+      </div>
+  `;
+}
+*/
+function renderSongkickEventData(item) {
+  return `
+      <div class="shows-single-result row">
+        <div class="google-maps-result col-6">
+          <a href="https://www.google.com/maps/search/?api=1&query=${item.venue.displayName} ${item.location.city}" target="_blank">
+            <img class="maps-image" src="https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=750x750&maptype=roadmap&markers=color:blue%7C${item.venue.displayName} ${item.location.city}&key=AIzaSyCdM8iZUs9ES3bKVvpiV8O7p3qsC23xXQI">
+          <a>
+        </div>
+        <div class="col-6">
+          <span><b>Date:</b> ${item.start.date}</span><br>
+          <span><b>Location:</b> <span class="show-location">${item.location.city}</span></span><br>
+          <span><b>Event:</b></span><br>
+          <a href="${item.uri} target="_blank">
+            <span>${item.displayName}</span><br>
+          </a>
+          <span><b>Venue:</b></span><br>
+          <a href="${item.venue.uri} target="_blank">
+            <span class="show-venue">${item.venue.displayName}</span><br>
+          </a>
+        </div>
       </div>
   `;
 }

@@ -35,6 +35,14 @@ body:before {
   padding: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
+  position: relative;
+}
+
+.button-container {
+  padding: 14px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  position: relative;
 }
 
 .container,
@@ -95,23 +103,8 @@ body:before {
   margin-top: 32px;
 }
 
-.shows-single-result {
-  height: 200px;
-}
-
-.google-maps-result {
-  float: left;
-  clear: both;
-  height: 100%;
-  margin-right: 5px;
-}
-
 .maps-image {
-  height: 100%;
-}
-
-.main-header {
-  position: relative;
+  height: 250px;
 }
 
 .welcome-message {
@@ -177,4 +170,25 @@ body:before {
 }
 .dropdown-container {
   margin-top: 120px;
+}
+
+@media only screen and (max-width: 730px) {
+  .manage-favorites-button {
+    position: static;
+    right: auto;
+    top: auto;
+    margin-left: 18px;
+    margin-right: 40px;
+  }
+
+  .logout-button {
+    position: static;
+    right: auto;
+    top: auto;
+  }
+
+  .maps-image {
+    width: 100%;
+    height: auto;
+  }
 }

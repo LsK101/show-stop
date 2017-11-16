@@ -42,8 +42,24 @@
   transition: all 0.2s ease 0s
 }
 
+.remove-favorite-button:hover {
+  border: 2px solid #5C6B73;
+  background-color: #5C6B73;
+  color: black;
+}
+
 .return-button:hover {
   border: 2px solid #9DB4C0;
   background-color: #9DB4C0;
   color: black;
+}
+
+@media only screen and (max-width: 730px) {
+  .return-button {
+    position: static;
+    right: auto;
+    top: auto;
+    margin-left: 18px;
+    margin-right: 40px;
+  }
 }
