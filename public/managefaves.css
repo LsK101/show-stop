@@ -61,5 +61,6 @@
     top: auto;
     margin-left: 18px;
     margin-right: 40px;
+    display: inline-block;
   }
 }

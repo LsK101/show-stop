@@ -178,6 +178,7 @@ body:before {
     top: auto;
     margin-left: 18px;
     margin-right: 40px;
+    display: inline-block;
   }
 
   .logout-button {
@@ -186,6 +187,7 @@ body:before {
     top: auto;
     display: block;
     margin-left: 18px;
+    display: inline-block;
   }
 
   .maps-image {
