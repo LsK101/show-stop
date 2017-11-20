@@ -17,7 +17,7 @@ function listFavorites(favoritesArray) {
 	favoritesArray.forEach(favorite => {
 		let favoriteArtistHTML = `
 		<div class="favorite-artist-single-result">
-			<button role="button" class="remove-favorite-button">Delete</button>
+			<img class="remove-favorite-logo" src="./images/remove-favorite.png">
         	<span class="favorite-artist-name"><b>${favorite}</b></span><br>
       	</div>
   		`;
@@ -26,7 +26,7 @@ function listFavorites(favoritesArray) {
 }
 
 function deleteFavoriteArtist() {
-	$('.manage-favorites-container').on('click', '.remove-favorite-button', event => {
+	$('.manage-favorites-container').on('click', '.remove-favorite-logo', event => {
 		const deleteQuery = $(event.currentTarget).closest('div').find('.favorite-artist-name').text();
 		$.ajax({
 			url: "api/faves/del",
@@ -36,8 +36,9 @@ function deleteFavoriteArtist() {
 				authorization: `Bearer ${authToken}`
 			},
 			data: JSON.stringify({userID: currentUserID, deleteArtist: deleteQuery})
-		}).then(() => {
+		}).then(res => {
 			reloadAndRenderFavorites();
+			alert(res.message);
 		})
 	});
 }

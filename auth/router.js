@@ -18,6 +18,7 @@ router.post('/login', (req, res, next) => {
     passport.authenticate('basic', function(err, user, info) {
         if (err) {next(err)}
         if (!user) {
+            res.removeHeader('www-authenticate');
             return res.status(401).json({message: 'Incorrect username or password'})
         }
         else {

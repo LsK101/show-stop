@@ -52,6 +52,7 @@ function getLoginSignupPageDataFromServer() {
     clearAndHideManageFavoritesContainer();
     clearAuthTokenAndCurrentUser();
     resetSearchCounters();
+    unhideLandingContainer();
     populateAndUnhideLoginSignupContainer(res);
     handleLoginForm(); //FROM INDEX.JS
     handleSignupForm(); //FROM INDEX.JS
@@ -78,6 +79,10 @@ function resetSearchCounters() {
 function populateAndUnhideLoginSignupContainer(HTML) {
   $('.login-signup-container').append(HTML);
   $('.login-signup-container').prop('hidden', false);
+}
+
+function unhideLandingContainer() {
+  $('.landing-container').prop('hidden', false);
 }
 
 /* MANAGE FAVORITES BUTTON FUNCTIONALITY */

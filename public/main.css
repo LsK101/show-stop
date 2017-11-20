@@ -37,6 +37,7 @@ body:before {
 }
 
 .button-container {
+  position: relative;
   padding: 14px;
   margin-top: 10px;
   margin-bottom: 30px;
@@ -87,10 +88,12 @@ body:before {
 }
 
 .history-search-logo,
-.similar-search-logo, 
-.discovered-search-logo, 
+.similar-search-logo,
+.similar-search-logo-dead, 
 .similar-songkick-logo,
-.favorites-logo {
+.favorites-logo,
+.favorites-logo-dead,
+.remove-favorite-logo {
   display: inline-block;
   width: 30px; 
   height: 30px;

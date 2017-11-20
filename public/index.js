@@ -15,6 +15,10 @@ function populateAndUnhideMainContainer(HTML) {
 	$('.main-container').prop('hidden', false);
 }
 
+function hideLandingContainer() {
+	$('.landing-container').prop('hidden', true);
+}
+
 function handleLoginForm() {
   $('.login-container').submit($('.login-form'), event => {
     event.preventDefault();
@@ -71,6 +75,7 @@ function useAuthTokenToLogIn(authToken) {
 		}
 	}).then(res => {
 		clearAndHideLoginSignupContainer();
+		hideLandingContainer();
 		getAndSetCurrentUserID(authToken);
 		populateAndUnhideMainContainer(res);
 	});

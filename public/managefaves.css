@@ -1,4 +1,6 @@
 .return-button {
+  position: absolute;
+  right: 150px;
   color: white;
   height: 45px;
   font-weight: bold;
@@ -28,27 +30,14 @@
   background-color: #9DB4C0;
 }
 
-.remove-favorite-button {
-  color: white;
-  height: 30px;
-  font-weight: bold;
-  font-size: 18px;
-  border: 2px solid #253237;
-  background-color: #253237;
-  border-radius: 3px;
-  transition: all 0.2s ease 0s
-}
-
-.remove-favorite-button:hover {
-  border: 2px solid #5C6B73;
-  background-color: #5C6B73;
-  color: black;
-}
-
 .return-button:hover {
   border: 2px solid #9DB4C0;
   background-color: #9DB4C0;
   color: black;
+}
+
+.favorite-artist-name {
+  font-size: 20px;
 }
 
 @media only screen and (max-width: 940px) {
@@ -57,7 +46,5 @@
     right: auto;
     top: auto;
     margin-left: 18px;
-    margin-right: 40px;
-    display: inline-block;
   }
 }
