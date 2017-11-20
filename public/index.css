@@ -4,7 +4,7 @@ html {
 
 body {
   max-width: 1000px;
-  min-width: 520px;
+  min-width: 560px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -46,15 +46,7 @@ input {
   margin-left: auto;
   margin-right: auto;
 }
-/*
-.logo {
-  border: 2px solid white;
-  position: relative;
-  height: 35px;
-  align-content: middle;
-  left: 100px;
-}
-*/
+
 .login-container {
   padding-left: 40px;
   padding-right: 40px;

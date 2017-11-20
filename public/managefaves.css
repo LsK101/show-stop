@@ -1,9 +1,6 @@
 .return-button {
   color: white;
   height: 45px;
-  position: absolute;
-  right: 140px;
-  top: 12px;
   font-weight: bold;
   font-size: 20px;
   border: 2px solid #253237;

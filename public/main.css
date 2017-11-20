@@ -40,7 +40,6 @@ body:before {
   padding: 14px;
   margin-top: 10px;
   margin-bottom: 30px;
-  position: relative;
 }
 
 .container,
@@ -112,10 +111,7 @@ body:before {
 
 .manage-favorites-button {
   color: white;
-  height: 45px;
-  position: absolute;
-  right: 140px;
-  top: 12px;
+  height: 34px;
   font-weight: bold;
   font-size: 20px;
   border: 2px solid #253237;
@@ -127,9 +123,7 @@ body:before {
 .logout-button {
   color: white;
   height: 45px;
-  position: absolute;
-  right: 8px;
-  top: 12px;
+  float: right;
   font-weight: bold;
   font-size: 20px;
   border: 2px solid #253237;
@@ -172,24 +166,6 @@ body:before {
 }
 
 @media only screen and (max-width: 940px) {
-  .manage-favorites-button {
-    position: static;
-    right: auto;
-    top: auto;
-    margin-left: 18px;
-    margin-right: 40px;
-    display: inline-block;
-  }
-
-  .logout-button {
-    position: static;
-    right: auto;
-    top: auto;
-    display: block;
-    margin-left: 18px;
-    display: inline-block;
-  }
-
   .maps-image {
     width: 100%;
     height: auto;
