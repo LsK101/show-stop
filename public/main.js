@@ -247,11 +247,13 @@ function displaySongkickEventData(songkickAPIData) {
 }
 
 function renderSongkickEventData(item) {
+  let venue = item.venue.displayName
+  let venueEdited = venue.replace(/&/g, "%26");
   return `
       <div class="shows-single-result row">
         <div class="google-maps-result col-6">
-          <a href="https://www.google.com/maps/search/?api=1&query=${item.venue.displayName} ${item.location.city}" target="_blank">
-            <img class="maps-image" src="https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=750x750&maptype=roadmap&markers=color:blue%7C${item.venue.displayName} ${item.location.city}&key=AIzaSyCdM8iZUs9ES3bKVvpiV8O7p3qsC23xXQI">
+          <a href="https://www.google.com/maps/search/?api=1&query=${venueEdited} ${item.location.city}" target="_blank">
+            <img class="maps-image" src="https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=750x750&maptype=roadmap&markers=color:blue%7C${venueEdited} ${item.location.city}&key=AIzaSyCdM8iZUs9ES3bKVvpiV8O7p3qsC23xXQI">
           <a>
         </div>
         <div class="col-6">
