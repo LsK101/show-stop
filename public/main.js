@@ -260,11 +260,11 @@ function renderSongkickEventData(item) {
           <span><b>Date:</b> ${item.start.date}</span><br>
           <span><b>Location:</b> <span class="show-location">${item.location.city}</span></span><br>
           <span><b>Event:</b></span><br>
-          <a href="${item.uri} target="_blank">
+          <a href="${item.uri}" target="_blank">
             <span>${item.displayName}</span><br>
           </a>
           <span><b>Venue:</b></span><br>
-          <a href="${item.venue.uri} target="_blank">
+          <a href="${item.venue.uri}" target="_blank">
             <span class="show-venue">${item.venue.displayName}</span><br>
           </a>
         </div>
