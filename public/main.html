@@ -22,13 +22,16 @@
         <div class="col-6">
 
           <section role="region" class="search-form-container">
-            <form role="search" action="#" class="search-form">
-              <img src="./images/search-logo.png" class="similar-search-logo-dead">
-              <label for="search-music" class="section-header">Artist Search</label>
-              <br><br>
-              <input role="searchbox" id="search-music" type="text" class="artist-string search-box" placeholder="Artist" required>
-              <button role="button" type="submit" class="search-button">Search</button>
-            </form>
+            <div class="search-form-size-container">
+              <form role="search" action="#" class="search-form">
+                <img src="./images/search-logo.png" class="similar-search-logo-dead">
+                <label for="search-music" class="section-header">Artist Search</label>
+                <br><br>
+                <input role="searchbox" id="search-music" type="text" class="artist-string search-box" placeholder="Artist" required>
+                <br>
+                <button role="button" type="submit" class="search-button">Search</button>
+              </form>
+            </div>
 
             <div class="dropdown-container">
               <img class="favorites-logo-dead" src="./images/favorites-star-dead.png">
@@ -37,6 +40,7 @@
               <select role="search" class="favorites-dropdown">
               <option value=""></option>
               </select>
+              <br>
               <button role="button" class="manage-favorites-button">Manage</button>
             </div>
 

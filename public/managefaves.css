@@ -1,6 +1,4 @@
 .return-button {
-  position: absolute;
-  right: 150px;
   color: white;
   height: 45px;
   font-weight: bold;
@@ -40,11 +38,9 @@
   font-size: 20px;
 }
 
-@media only screen and (max-width: 940px) {
+@media only screen and (min-width: 670px) {
   .return-button {
-    position: static;
-    right: auto;
-    top: auto;
-    margin-left: 18px;
+    position: absolute;
+    right: 150px;
   }
 }

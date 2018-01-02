@@ -4,7 +4,7 @@ html {
 
 body {
   max-width: 1000px;
-  min-width: 560px;
+  min-width: 310px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0px;
@@ -32,10 +32,24 @@ label, input {
 }
 
 input {
-  width: 286px;
-  display: relative;
   border: 2px solid #9DB4C0;
   border-radius: 3px;
+}
+
+a:link {
+  color: #253237;
+}
+
+a:visited {
+  color: #253237;
+}
+
+a:hover {
+  color: white;
+}
+
+a:active {
+  color: white;
 }
 
 .landing-container {
@@ -46,18 +60,23 @@ input {
   padding-left: 40px;
   padding-right: 40px;
   width: 400px;
-  height: 450px;
   background-color: #5C6B73;
   margin-left: auto;
   margin-right: auto;
   opacity: 0.9;
 }
 
+.form-sizing-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 320px;
+}
+
 .signup-container {
   padding-left: 40px;
   padding-right: 40px;
   width: 400px;
-  height: 560px;
   background-color: #5C6B73;
   margin-left: auto;
   margin-right: auto;
@@ -66,7 +85,7 @@ input {
 
 .login-form, .signup-form {
   font-weight: bold;
-  width: 320px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -87,7 +106,8 @@ input {
 }
 
 .login-button {
-  width: 320px;
+  max-width: 320px;
+  width: 100%;
   margin-top: 25px;
   height: 55px;
   font-weight: bold;
@@ -107,7 +127,8 @@ input {
 }
 
 .input-box {
-  width: 320px;
+  display: block;
+  width: 100%;
 }
 
 .showstop-logo {
@@ -116,4 +137,8 @@ input {
 
 .logobox {
   margin-top: 10px;
+}
+
+.landing-greeting {
+  font-size: 20px;
 }
