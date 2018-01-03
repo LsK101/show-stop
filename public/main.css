@@ -134,6 +134,10 @@ body:before {
   transition: all 0.2s ease 0s
 }
 
+.manage-favorites-button-container {
+  text-align: right;
+}
+
 .logout-button {
   color: white;
   height: 45px;
@@ -155,6 +159,10 @@ body:before {
   background-color: #253237;
   border-radius: 3px;
   transition: all 0.2s ease 0s
+}
+
+.search-button-container {
+  text-align: right;
 }
 
 .manage-favorites-button:hover,
