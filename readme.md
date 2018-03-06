@@ -17,3 +17,5 @@ Search results include when and where events are taking place and a map of the l
 
 A simple favorites management interface allows users to remove artists from their favorites list if they need to.
 ![A simple favorites management interface allows users to remove artists from their favorites list if they need to.](https://raw.githubusercontent.com/LsK101/music-guide-v2/master/public/screenshots/favorites.PNG)
+
+Created using HTML, CSS, JavaScript, jQuery, Node.js
