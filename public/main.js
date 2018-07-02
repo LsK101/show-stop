@@ -317,6 +317,69 @@ function handleSearchUsingSimilarArtist() {
   });
 }
 
+/* NAVBAR FUNCTIONS */
+function showMobileNav() {
+  $('.main-container').on('click', '.mobile-navbar', () => {
+    $('.mobile-navbar-list').toggle([750]);
+  });
+}
+
+function handleQuickFavoritesButton() {
+  $('.main-container').on('click', '#manage-favorites-link', event => {
+    clearAndHideMainContainer();
+    resetSearchCounters();
+    populateAndUnhideFavoritesContainer();
+  });
+}
+
+function handleQuickLogoutButton() {
+  $('.main-container').on('click', '#logout-link', event => {
+    getLoginSignupPageDataFromServer();
+  });
+}
+
+function scrollToSearch() {
+  $('.main-container').on('click', '#search-link', () => {
+    $('html, body').animate({
+      scrollTop: $('#search').offset().top -10
+    }, 750);
+  });
+}
+
+function scrollToRecentSearches() {
+  $('.main-container').on('click', '#recents-link', () => {
+    $('html, body').animate({
+      scrollTop: $('#recents').offset().top -10
+    }, 750);
+  });
+}
+
+function scrollToSimilarArtists() {
+  $('.main-container').on('click', '#similar-link', () => {
+    $('html, body').animate({
+      scrollTop: $('#similar').offset().top -10
+    }, 750);
+  });
+}
+
+function scrollToUpcomingShows() {
+  $('.main-container').on('click', '#upcoming-link', () => {
+    $('html, body').animate({
+      scrollTop: $('#upcoming').offset().top -10
+    }, 750);
+  });
+}
+
+function handleNavbarFunctions() {
+  showMobileNav();
+  handleQuickFavoritesButton()
+  handleQuickLogoutButton();
+  scrollToSearch();
+  scrollToRecentSearches();
+  scrollToSimilarArtists();
+  scrollToUpcomingShows();
+}
+
 /* EXECUTE ALL FUNCTION CALLS */
 handleSearchForm();
 goToManageFavoritesPage();
@@ -325,3 +388,4 @@ handleMainLogoutButton();
 handleSearchUsingFavoritesDropdown();
 handleSearchUsingSearchHistory();
 handleSearchUsingSimilarArtist();
+handleNavbarFunctions();

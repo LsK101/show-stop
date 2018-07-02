@@ -1,3 +1,39 @@
+      <div class="mobile-navbar">
+        <img class="hamburger-icon" src="./images/hamburger-with-text-black.png">
+        <ul class="mobile-navbar-list" hidden>
+          <li>
+            <a id="search-link" class="navbar-link" href="#">
+              Artist Search
+            </a>
+          </li>
+          <li>
+            <a id="recents-link" class="navbar-link" href="#">
+              Recently Searched
+            </a>
+          </li>
+          <li>
+            <a id="similar-link" class="navbar-link" href="#">
+              Other Artists You May Like
+            </a>
+          </li>
+          <li>
+            <a id="upcoming-link" class="navbar-link" href="#">
+              Upcoming Live Performances
+            </a>
+          </li>
+          <li>
+            <a id="manage-favorites-link" class="navbar-link" href="#">
+              Manage Favorites
+            </a>
+          </li>
+          <li>
+            <a id="logout-link" class="navbar-link" href="#">
+              Log Out
+            </a>
+          </li>
+        </ul>
+      </div>
+
       <div class="row">
 
         <div class="col-6">
@@ -21,7 +57,7 @@
 
         <div class="col-6">
 
-          <section role="region" class="search-form-container">
+          <section role="region" class="search-form-container" id="search">
             <div class="search-form-size-container">
               <form role="search" action="#" class="search-form">
                 <img src="./images/search-logo.png" class="similar-search-logo-dead">
@@ -56,7 +92,7 @@
 
         <div class="col-6">
 
-          <section role="region" class="search-history search-history-container">
+          <section role="region" class="search-history search-history-container" id="recents">
             <span role="heading" class="section-header">Recently Searched</span>
             <br>
             <br>
@@ -72,7 +108,7 @@
 
         <div class="col-12">
 
-          <section role="region" class="similar-artists container hidden" hidden>
+          <section role="region" class="similar-artists container hidden" id="similar" hidden>
           </section>
 
         </div>
@@ -85,7 +121,7 @@
 
         <div class="col-12">
 
-          <section role="region" class="shows container hidden" hidden>
+          <section role="region" class="shows container hidden" id="upcoming" hidden>
           </section>
 
         </div>
