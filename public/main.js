@@ -372,7 +372,7 @@ function scrollToUpcomingShows() {
 
 function handleNavbarFunctions() {
   showMobileNav();
-  handleQuickFavoritesButton()
+  handleQuickFavoritesButton();
   handleQuickLogoutButton();
   scrollToSearch();
   scrollToRecentSearches();
